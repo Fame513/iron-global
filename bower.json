@@ -1,0 +1,29 @@
+{
+  "name": "iron-global",
+  "version": "1.0.0",
+  "description": "Creating global variable in polymer",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "global"
+  ],
+  "authors": [
+    "Fame"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-signals.git"
+  },
+  "main": "iron-global.html",
+  "homepage": "https://github.com/PolymerElements/iron-signals/",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "iron-signals": "PolymerElements/iron-signals#^1.0.3"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "web-component-tester": "^4.0.0"
+  },
+  "ignore": []
+}

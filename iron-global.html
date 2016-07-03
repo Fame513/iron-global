@@ -1,0 +1,73 @@
+<link rel="import" href="../iron-signals/iron-signals.html">
+
+<dom-module id="iron-global">
+    <template>
+        <iron-signals on-iron-signal-glob-update="globUpdate"></iron-signals>
+    </template>
+
+    <script>
+        (function () {
+            var glob = {};
+            Polymer({
+
+                is: 'iron-global',
+
+                properties: {
+                    data: {
+                        type: Object,
+                        notify: true
+                    },
+                    name: String,
+                    readonly:{
+                        type: Boolean,
+                        value: false,
+                        reflectToAttribute: true
+                    },
+                    forced:{
+                        type: Boolean,
+                        value: false,
+                        reflectToAttribute: true
+                    }
+                },
+
+                observers: [
+                    "globChange(data.*)"
+                ],
+
+                attached:function(){
+                    if (this.forced){
+                        glob[this.name] = this.data;
+                        this.fire("iron-signal", {"name": "glob-update", "data": {path: "data", value: this.data, name: this.name}});
+
+                    } else {
+                        if (glob[this.name] === undefined && this.readonly === false) {
+                            glob[this.name] = this.data;
+                        } else {
+                            this.data = this.readonly ? JSON.parse(JSON.stringify(glob[this.name])) : glob[this.name];
+                        }
+                    }
+                },
+
+                globChange(change){
+                    if (!this.readonly) {
+                        console.log(this.name, "observer", change.path);
+                        this.fire("iron-signal", {
+                            "name": "glob-update",
+                            "data": {path: change.path, value: change.value, name: this.name}
+                        });
+                    }
+
+                },
+
+                globUpdate: function (e, data) {
+                    if (data.name === this.name) {
+                        console.log(this.name, "signal");
+                        this.set(data.path, this.readonly ? JSON.parse(JSON.stringify(data.value)) : data.value);
+                    }
+                }
+
+            });
+        })();
+
+    </script>
+</dom-module>
