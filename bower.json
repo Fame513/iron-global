@@ -12,10 +12,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/PolymerElements/iron-signals.git"
+    "url": "git://github.com/Fame513/iron-global.git"
   },
   "main": "iron-global.html",
-  "homepage": "https://github.com/PolymerElements/iron-signals/",
+  "homepage": "https://github.com/Fame513/iron-global",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.0.0",
     "iron-signals": "PolymerElements/iron-signals#^1.0.3"
