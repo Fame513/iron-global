@@ -1,6 +1,6 @@
 {
   "name": "iron-global",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Creating global variable in polymer",
   "keywords": [
     "web-component",
@@ -25,5 +25,12 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
     "web-component-tester": "^4.0.0"
   },
-  "ignore": []
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "MIT"
 }
