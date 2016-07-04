@@ -50,7 +50,6 @@
 
                 globChange(change){
                     if (!this.readonly) {
-                        console.log(this.name, "observer", change.path);
                         this.fire("iron-signal", {
                             "name": "glob-update",
                             "data": {path: change.path, value: change.value, name: this.name}
@@ -61,7 +60,6 @@
 
                 globUpdate: function (e, data) {
                     if (data.name === this.name) {
-                        console.log(this.name, "signal");
                         this.set(data.path, this.readonly ? JSON.parse(JSON.stringify(data.value)) : data.value);
                     }
                 }
